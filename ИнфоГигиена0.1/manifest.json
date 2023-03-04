@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "ИнфоГигиена",
+    "version": "0.1",
+    "description": "Расширение «ИнфоГигиена» позволяет реализовать механизм самообучения борьбе с недостоверной информацией в социальных сетях.",
+
+    "icons": { "16": "logos/logo16.png",
+        "48": "logos/logo48.png",
+       "128": "logos/logo128.png" 
+    },
+
+    "browser_action": {
+    "default_icon": "logos/logo48.png",
+    "default_title": "ИнфоГигиена"
+    },
+
+    "content_scripts": [
+        {
+          "matches": ["https://vk.com/*"],
+          "js": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "highlightCAPS.js", 
+            "highlightPunctuation.js",
+            "parse.js",
+            "main.js"
+          ],
+          "css": [
+            "style.css"
+          ]
+        }
+    ],
+    
+    "permissions": [
+    "activeTab"
+    ]
+
+}
